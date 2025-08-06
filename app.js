@@ -53,6 +53,5 @@ function sortearAmigo (){
         //Mostrar el nombre sorteado: Utilizar innerHTML para mostrar el nombre en un elemento HTML
         document.getElementById("sorteado").innerHTML = `Amigo sorteado: ${amigoSorteado}`;
     }
-
 }
 
