@@ -3,6 +3,12 @@
 
 let listaDeAmigos = [];
 
+function asignarTextoElemento(elemento,texto){
+    let elementoHTML = document.querySelector(elemento);
+    elementoHTML.innerHTML = texto;
+    return;
+}
+
 console.log(listaDeAmigos);
 function agregarAmigo (){
     let nombre = document.getElementById("amigo").value.trim();
@@ -19,6 +25,7 @@ agregarAmigosALista();
 
 function limpiarCaja(){
     document.querySelector("#amigo").value="";
+    document.querySelector("#amigo").focus();
     return;
 }
 
@@ -32,6 +39,19 @@ for (let i = 0; i < listaDeAmigos.length; i++) {
     elemento.textContent = listaDeAmigos[i];
     //Agrega el elemento a la lista.
     lista.appendChild(elemento);
+    }
+}
+function sortearAmigo (){
+//Validar que haya amigos disponibles: Antes de sortear, comprobar si el array amigos no está vacío.
+
+    if (listaDeAmigos.length == 0){
+        asignarTextoElemento(`H2`,`No hay amigos para sortear`);
+    }else{
+        let aleatorio = Math.floor(Math.random() * listaDeAmigos.length);
+        //Obtener el nombre sorteado: Utilizar el índice aleatorio para acceder al nombre correspondiente en el arreglo.
+        let amigoSorteado = listaDeAmigos[aleatorio];
+        //Mostrar el nombre sorteado: Utilizar innerHTML para mostrar el nombre en un elemento HTML
+        document.getElementById("sorteado").innerHTML = `Amigo sorteado: ${amigoSorteado}`;
     }
 
 }
